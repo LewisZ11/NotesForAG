@@ -1,0 +1,134 @@
+
+## Amazon OA NG Student Program
+
+### AWS horizontal server scale
+- 给一个服务器算力array，每次能在任意subarray 上加 x 算力， 求最小x得到一个non-decreasing 算力array。
+Ex：[2, 3, 5, 2, 6, 5] return 4 - for loop 解决
+- 比如输入[1,8,3,4,2]
+首先把3 4 2都+5 -> input = [1,8,8,9,7], res = 5
+然后把7 + 2 -> input = [1,8,8,9,9], res = 7
+Output 7
+
+### Shipping boxes
+给一个boxes capacities 数组， 设a,b,c 为indexes， 0<= a < b < c <= n-1, 且capacities[a] 是 capacities 的factor, capacities是capacities[c]的factor， 求所有满足条件的(a, b, c) 中 max b
+https://www.1point3acres.com/bbs/thread-917945-1-1.html
+https://www.1point3acres.com/bbs/thread-917576-1-1.html
+
+### 第二题：input是一个数组，找出subarray为递减的个数（必须是连续递减）
+Ex: [4,3,5,4,3]
+长度为1：[4] [3] [5] [4] [3]
+长度为2: [4,3] [5,4] [4,3]‍‌‌‍‌‌‌‍‌‌‍‌‌‌‍‍‌‌‌‌
+长度为3: [5,4,3]
+一共为9个
+
+### 地里有人发SinglyLinkedListNode那道题目
+
+### find min health
+Leetcode 回血题
+
+
+
+### input: string, int k
+output: int
+问有几种split input string into two contiguous substring的方法，使得‍‌‌‍‌‌‌‍‌‌‍‌‌‌‍‍‌‌‌‌两个substring中common char个数>k
+
+```
+    - Solution:
+    unordered_map<char, int> suffix：string里每个字母最后在哪个index出现
+    unordered_set<char> seen：用来在从前往后遍历string时记录prefix里有哪些char
+    int num_common：用来记录prefix和suffix有多少distinct common characters
+    int res = 0: 返回的结果
+    # 遍历string构造suffix
+    # 遍历string
+    如果suffix[当前字母] > 当前index && 当前字母不在seen里，num_common++
+    如果suffix[当前字母] <= 当前index && 当前字母在seen里，num_common--
+    更新seen
+    更新res
+    时间O(n)，空间O(1)，优化的话map和set都可以用fixed length list代替，我太久没刷题了交完才想起这回事，不过还是过了
+```
+
+先排序，然后如果差大于k，就多分一组。
+
+### Leetcode 2281
+
+### 放plate 最轻的在最上，最重的在最下，问最少要动多少次
+
+### 杨辉三角
+
+### min net stock(earliest month)
+
+### aggregate temperature change
+https://www.1point3acres.com/bbs/thread-917024-1-1.html
+
+### determine the minimum number of groups that can be formed such that each mov‍‌‌‍‌‌‌‍‌‌‍‌‌‌‍‍‌‌‌‌ie is in exactly one group. 
+先排序，然后如果差大于k，就多分一组。
+https://www.1point3acres.com/bbs/thread-917024-1-1.html
+
+
+### 服务器清理连续内存。给一个integer数组arr，和一个integer k。在数组中删掉k个连续元素, 问剩下的元素之和的最小值是多少?
+我觉得用滑动窗口算法更好些
+例子: arr = [7, 3, 6, 1], k = 2
+删除7, 3, 剩 6, 1，sum = 7
+删除3, 6, 剩 7, 1, sum = 8
+删除6, 1, 剩7, 3, sum = 10
+最小值是7
+先sum（不包含前k个元素），然后traverse，sum加上window最左边再减去最右边，找最小。
+解法：先算出prefix sum array，和suffix sum array，然后 curSum = prefixSum[i - 1] + suffixSum[i + k]，然后求global maximum sum。
+
+
+### 给一个integer数组arr，判断有多少个subarray是consecutive decreasing，consecutive decreasing是指这些相邻元素，后一个 = 前一个 - 1。
+我觉得用dp更好
+例子：arr = [4, 3, 2, 5, 9, 8]
+符合条件的subarray有 [4], [4, 3], [4, 3, 2], [3], [3, 2], [2], [5], [9], [9, 8], [8]，所以答案是10。
+解法：先把arr分成consecutive decreasing的subarray，记录每个subarray的长度，长度为n的subarray有 n * (n + 1) / 2种case。
+上面的例子，先‍‌‌‍‌‌‌‍‌‌‍‌‌‌‍‍‌‌‌‌分成[4, 3, 2], [5], [9, 8]，记录所有的长度[3, 1, 2]，再对每个长度n求n * (n + 1) / 2，最后相加。
+
+
+### ships millions of packages regularly. There
+are a number of parcels that need to be shipped.
+Compute the minimum possible sum of
+transportation costs incurred in the shipment of
+additional parcels in the following scenario.
+• A fully loaded truck carries « parcels.
+• It is most efficient for the truck to be fully loaded.
+There are a number of parcels already on the
+truck as listed in parcels).
+• There are parcels with a unique id that ranges
+from 1 through infinity
+• The parcel id is also the cost to ship ‍‍‌‍‍‌‌‍‌‍‍‍‌‍‌‌‍‌‌‍that parcel.
+Given the parcel IDs which are already added in
+the shipment, find the minimum possible cost of
+shipping the items added to complete the load.
+https://www.1point3acres.com/bbs/thread-907723-1-1.html
+
+
+### https://www.1point3acres.com/bbs/thread-916234-1-1.html
+
+### 给一个list 然后给你一个公式, 根据这个公式计算出第几次变化的结果最小
+
+
+## Amazon OA Internship
+
+给两个string找出第1个string要加多少字母才能让第2个string变成第1个的subsequence
+e.g.
+input: "armaze", "amazon"
+output: 2
+
+给一个array的数字和数字k  在所有k大小的subarray找最大sum
+但是subarray里面有重复的数字就不能算。
+e.g.
+input: arr = [1,2,7,7,4,3,6], k = 3
+output: sum([7,4,3]) = 14
+
+s中的字母可以组成多少个t
+给两个字符串s和t，求问使用s所有的字母最多能够重组出几个t。
+e.g.
+s="mononom"，t="mon"， 则答案是2。
+
+### Amazon OA NG 社招
+
+Leetcode 973
+
+第二题
+https://www.1point3acres.com/bbs/thread-917695-1-1.html
+

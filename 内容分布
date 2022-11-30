@@ -1,0 +1,44 @@
+Library management system:
+- search books
+- keep track of each book info
+- adding books
+- borrow/return books
+- borrow/return time + charges
+
+
+Airline System:
+- search airline by infos (from -> to, roundtrip/one way, timeframe) 
+- create/modify/cancel reservation for many passenegers
+- cancel reservation
+- class needed to be created:
+-- Customer (age, name, sex, address, contact people, membership, generateReservation)
+-- Flight (from, to)
+-- FlightPlane extends Flight {
+  int plane ID;
+  String Departure;
+  String Arrivial;
+  int capacities;
+  Map<Integer, Customer> NumberToCustomer;
+
+}
+-- System (available airlines by search)
+-- Reservation {
+  Customer customer;
+  List<Customer> afflitedPersons;
+  FlightPlane flightPlane;
+  List<Integer> flightPositionInfo;
+  id reservationID;
+  public Reservation generateReservation (Customer customer, List<Customer> peoples, FlightPlane){
+
+  }
+}
+    AirlineSystems.searchBy(...)
+    if false: println("we cannot...")
+    
+    // then showing available position List<Integer> positions
+    AirlineSystems.updateAirlineInfo("add", positions);
+    - changeFlightInfo
+    - Payment Information like
+
+
+    
